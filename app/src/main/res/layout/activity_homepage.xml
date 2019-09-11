@@ -22,7 +22,7 @@
         android:layout_marginLeft="125dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="38dp"
-        android:text="Zoe Hancock"
+        android:text="User name "
         android:textSize="30sp"
         android:textStyle="bold" />
 

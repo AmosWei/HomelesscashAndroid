@@ -7,12 +7,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 public class homepage extends AppCompatActivity {
     TextView dn;
     TextView dh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_homepage);
         dh = (TextView)findViewById(R.id.DH);
         dn = (TextView)findViewById(R.id.donations);
@@ -32,4 +37,5 @@ public class homepage extends AppCompatActivity {
         });
 
     }
+
 }

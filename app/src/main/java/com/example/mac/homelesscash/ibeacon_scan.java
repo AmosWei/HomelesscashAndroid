@@ -33,6 +33,8 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
         this.beaconListView.setAdapter(adapter);
         this.beaconManager = BeaconManager.getInstanceForApplication(this);
         this.beaconManager.getBeaconParsers().add(new BeaconParser().setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
+        //set up a parser that will look for Bluetooth packets
+        // that match the layout. Not all Bluetooth devices are iBeacons, so specifying to only scan for hardware that meets the specification.
         this.beaconManager.bind(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -63,6 +65,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
     }
 
     @Override
+    //define a listener for beacons that are in range and define which beacons to listen for.
     public void onBeaconServiceConnect() {
         this.beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override

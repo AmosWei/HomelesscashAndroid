@@ -4,49 +4,71 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_login"
+
+
 
     tools:context=".signup">
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="276dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/pwET"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="62dp"
+        android:layout_marginBottom="-263dp"
+        />
 
     <TextView
         android:id="@+id/tx1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN UP"
-        android:textStyle="bold"
-        android:textSize="30sp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="64dp"
+        android:text="SIGN UP"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/emET"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="47dp"
+        android:layout_below="@id/tx1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:background="#80000000"
         android:ems="10"
         android:hint="email"
-        android:layout_below="@id/tx1"
-        android:layout_marginTop="50dp"
         android:inputType="textEmailAddress"
 
-        android:layout_centerHorizontal="true"/>
+        android:textColorHint="@android:color/white" />
 
     <EditText
         android:id="@+id/pwET"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="password"
-        android:inputType="textPassword"
+        android:layout_height="45dp"
         android:layout_below="@+id/emET"
-
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:background="#80000000"
+        android:textColorHint="@android:color/white"
+        android:hint="password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/okB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Okay"
-        android:layout_marginTop="40dp"
+        android:layout_width="158dp"
+        android:layout_height="59dp"
         android:layout_below="@id/pwET"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="73dp"
+        android:background="#4d000000"
+        android:text="Go"
+        android:textSize="30dp" />
 
 </RelativeLayout>
