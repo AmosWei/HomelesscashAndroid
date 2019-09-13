@@ -4,35 +4,49 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-
 public class homepage extends AppCompatActivity {
-    TextView dn;
-    TextView dh;
+    TextView donation;
+    TextView donationHistory;
+    TextView donationmap;
+    TextView beaconscanner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
+//        FacebookSdk.sdkInitialize(getApplicationContext());
+//        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_homepage);
-        dh = (TextView)findViewById(R.id.DH);
-        dn = (TextView)findViewById(R.id.donations);
-        dh.setOnClickListener(new View.OnClickListener() {
+        donationHistory = (TextView)findViewById(R.id.DH);
+        donation = (TextView)findViewById(R.id.donations);
+        donationmap = (TextView)findViewById(R.id.average);
+        beaconscanner = (TextView)findViewById(R.id.people);
+        donationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(homepage.this,Donations_History.class);
                 startActivity(intent);
             }
         });
-        dn.setOnClickListener(new View.OnClickListener() {
+        donation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent_1 = new Intent(homepage.this,Donate.class);
                 startActivity(intent_1);
+            }
+        });
+        donationmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_mapview = new Intent(homepage.this,DH2.class); //direct to page with map view
+                startActivity(intent_mapview);
+            }
+        });
+        beaconscanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_scanner = new Intent(homepage.this,ibeacon_scan.class); //direct to page to scanner
+                startActivity(intent_scanner);
             }
         });
 
