@@ -89,12 +89,12 @@
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/btnDonate"
-        android:layout_width="184dp"
-        android:layout_height="277dp"
+        android:layout_width="181dp"
+        android:layout_height="117dp"
         android:layout_below="@+id/custom_acc"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="312dp"
+        android:layout_marginTop="471dp"
         android:layout_marginBottom="80dp"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
