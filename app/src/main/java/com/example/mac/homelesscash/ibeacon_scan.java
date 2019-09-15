@@ -3,17 +3,22 @@ package com.example.mac.homelesscash;
 
 import android.Manifest;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.icu.text.IDNA;
 import android.os.Build;
 import android.os.RemoteException;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.altbeacon.beacon.*;
 import java.util.*;
+import java.lang.Math;
 
 public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
 
@@ -50,6 +55,15 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                 builder.show();
             }
         }
+        beaconListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Object itemString = beaconListView.getItemAtPosition(i);
+                Intent openDonationPage = new Intent(ibeacon_scan.this, DonateNow.class);
+                openDonationPage.putExtra("what?", (String) itemString);
+                startActivity(openDonationPage);
+            }
+        });
     }
 
     @Override
@@ -63,6 +77,13 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
         this.beaconManager.unbind(this);
     }
 
+    // this is only temporate for demo
+    private ArrayList<String> homelessNames = new ArrayList<>(Arrays.asList("Jack London",
+            "Harry Potter", "Jon Snow", "Will Sim", "David Bakeham", "Jay Chou",
+            "Rainee Young", "Edd Stark", "Angela Chang", "November Rain", "Ron Wesley",
+            "Alan Walker", "Lily Potter"));
+    private Random rand = new Random();
+
     @Override
     //define a listener for beacons that are in range and define which beacons to listen for.
     public void onBeaconServiceConnect() {
@@ -75,9 +96,16 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                         Beacon beacon = iterator.next();
 
                         if (!beaconList.contains(beacon.getId1().toString())) {
-                            beaconList.add(beacon.getId1().toString());
+                            double distance_num = Math.floor(beacon.getDistance()*100)/100;
+                            String distance = Double.toString(distance_num);
+                            rand.setSeed(beacon.hashCode());
+                            String name = homelessNames.get(rand.nextInt(homelessNames.size()));
+                            String uuid = beacon.getId1().toString();
+//                            String major = beacon.getId2().toString();
+//                            String minor = beacon.getId3().toString();
+                            String toDisplay = name + " ---- Distance: " + distance + "m  "; // FIXME: distance not very accurate
+                            beaconList.add(toDisplay);
                         }
-//                        beaconList.add(iterator.next().getId1().toString());
                     }
                     runOnUiThread(new Runnable() {
                         @Override

@@ -7,11 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 
-
-public class signup extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
 
@@ -27,9 +24,10 @@ public class signup extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(signup.this, homepage.class);
-         //       if (emET.getText().toString() == "123@gmail.com" && pwET.getText().toString() == "123")
+                Intent intent = new Intent(SignUp.this, HomePage.class);
+//                if (emET.getText().toString().equals("123@gmail.com") && pwET.getText().toString().equals("123")){
                     startActivity(intent);
+//                }
 
                 }
 
