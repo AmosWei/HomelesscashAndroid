@@ -37,11 +37,10 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
         // that match the layout. Not all Bluetooth devices are iBeacons, so specifying to only scan for hardware that meets the specification.
         this.beaconManager.bind(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {  //Grant location access
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("This app needs location access");
-                builder.setMessage("Please grant location access so this app can detect beacons");
-                builder.setPositiveButton(android.R.string.ok, null);
+                builder.setTitle("We need location access");
+                builder.setMessage("Please click allow to grant location services");
                 builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialog) {
@@ -74,6 +73,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                     beaconList.clear();
                     for (Iterator<Beacon> iterator = beacons.iterator(); iterator.hasNext();) {
                         Beacon beacon = iterator.next();
+
                         if (!beaconList.contains(beacon.getId1().toString())) {
                             beaconList.add(beacon.getId1().toString());
                         }
