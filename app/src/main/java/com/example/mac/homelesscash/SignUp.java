@@ -68,7 +68,7 @@ public class SignUp extends AppCompatActivity {
     private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
-        if(username == Uid && password == Pw){
+        if(username.equals(Uid)  && password.equals(Pw) ){
             startNavigation();
             onLoginSuccess();
         }else{
