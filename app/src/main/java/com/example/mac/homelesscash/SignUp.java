@@ -1,7 +1,12 @@
 package com.example.mac.homelesscash;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +20,8 @@ public class SignUp extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
     String email,password;
+    String Uid = "ZoeDavid@gmail.com";
+    String Pw = "123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +66,64 @@ public class SignUp extends AppCompatActivity {
     }
 
     private void loginAction(String username, String password) {
+        Preferences.showLoading(this, "Log In", "Authenticating...");
+        final Activity act = this;
+        if(username == Uid && password == Pw){
+            startNavigation();
+            onLoginSuccess();
+        }else{
+            onLoginFailed();
+        }
+        
 
+    }
 
+    private void startNavigation() {
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+        SharedPreferences pref = getSharedPreferences(Preferences.SharedPreferencesTag, Preferences.SharedPreferences_ModeTag);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("isLogin", "true");
+        editor.apply();
+    }
+
+    private void onLoginFailed() {
+        okB.setEnabled(false);
+        Preferences.dismissLoading();
+        android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(SignUp.this).create();
+        alertDialog.setTitle("Login Failed");
+        if (checkInternetOn()) {
+            alertDialog.setMessage("Please check username and password again.");
+
+        } else {
+            alertDialog.setMessage("Please turn on internet connection.");
+
+        }
+        alertDialog.setButton(android.app.AlertDialog.BUTTON_POSITIVE, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+        okB.setEnabled(true);
+    }
+
+    public boolean checkInternetOn() {
+        ConnectivityManager conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+        if (netInfo == null) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
+    private void onLoginSuccess() {
+        okB.setEnabled(true);
+        finish();
     }
 
     public boolean validate(){
