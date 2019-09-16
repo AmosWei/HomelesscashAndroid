@@ -1,6 +1,7 @@
 package com.example.mac.homelesscash;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,20 +29,36 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
-                Intent intent = new Intent(SignUp.this, HomePage.class);
-//                if (emET.getText().toString().equals("123@gmail.com") && pwET.getText().toString().equals("123")){
-                    startActivity(intent);
-//                }
-
+                login();
                 }
 
         });
 
+
+        SharedPreferences pref = getSharedPreferences(Preferences.SharedPreferencesTag, Preferences.SharedPreferences_ModeTag);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("isLogin", "false");
+        editor.apply();
+
     }
 
     public void login(){
+        
+        if(!validate()){
+            okB.setEnabled(true);
+            return;
+        }
+        
+        okB.setEnabled(false);
+        
+        final String username = emET.getText().toString();
+        final String password = pwET.getText().toString();
+        
+        loginAction(username,password);
+
+    }
+
+    private void loginAction(String username, String password) {
 
 
     }
