@@ -8,7 +8,7 @@
 
 
 
-    tools:context=".signup">
+    tools:context=".SignUp">
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"

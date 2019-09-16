@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".signup">
+        <activity android:name=".SignUp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,15 +24,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".homepage" />
-        <activity android:name=".Donations_History" />
+        <activity android:name=".HomePage" />
+        <activity android:name=".DonationsHistory" />
         <activity android:name=".DH2" />
         <activity android:name=".DR" />
         <activity android:name=".Donate" />
         <activity android:name=".TY" />
         <activity android:name=".ibeacon_scan" />
+        <activity android:name=".DonateNow" />
 
-<!--        facebook login-->
+
+
+
+        <!--        facebook login-->
         <meta-data android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>
 

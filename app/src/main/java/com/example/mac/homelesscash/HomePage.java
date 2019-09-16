@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-public class homepage extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     TextView donation;
     TextView donationHistory;
     TextView donationmap;
@@ -24,28 +24,28 @@ public class homepage extends AppCompatActivity {
         donationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(homepage.this,Donations_History.class);
+                Intent intent = new Intent(HomePage.this, DonationsHistory.class);
                 startActivity(intent);
             }
         });
         donation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_1 = new Intent(homepage.this,Donate.class);
+                Intent intent_1 = new Intent(HomePage.this,Donate.class);
                 startActivity(intent_1);
             }
         });
         donationmap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_mapview = new Intent(homepage.this,DH2.class); //direct to page with map view
+                Intent intent_mapview = new Intent(HomePage.this,DH2.class); //direct to page with map view
                 startActivity(intent_mapview);
             }
         });
         beaconscanner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent_scanner = new Intent(homepage.this,ibeacon_scan.class); //direct to page to scanner
+                Intent intent_scanner = new Intent(HomePage.this,ibeacon_scan.class); //direct to page to scanner
                 startActivity(intent_scanner);
             }
         });
