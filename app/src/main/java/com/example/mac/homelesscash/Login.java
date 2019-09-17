@@ -13,15 +13,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  * Created by Hubert, modified on 16/09/19
  */
 public class Login extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
-    String email,password;
-    String Uid1 = "ZoeDavid@gmail.com";
-    String Uid2 = "test@gmail.com";
+    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com"));
     String Pw = "123456";
 
     @Override
@@ -69,7 +70,7 @@ public class Login extends AppCompatActivity {
     private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
-        if(username.equals(Uid1)  && password.equals(Pw) || (username.equals(Uid2)  && password.equals(Pw))){
+        if(uids.contains(username)  && password.equals(Pw)){
             startNavigation();
             onLoginSuccess();
         }else{
