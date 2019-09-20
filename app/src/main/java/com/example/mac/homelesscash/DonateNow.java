@@ -2,6 +2,7 @@ package com.example.mac.homelesscash;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,21 +35,27 @@ public class DonateNow extends AppCompatActivity {
         btn_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_left.setButtonBackgroundColor(200);
+                btn_left.setButtonBackgroundColor(Color.parseColor("#afdcd8"));
+                btn_middle.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
+                btn_right.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
                 Money = "$2";
             }
         });
         btn_middle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_middle.setButtonBackgroundColor(200);
+                btn_middle.setButtonBackgroundColor(Color.parseColor("#afdcd8"));
+                btn_left.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
+                btn_right.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
                 Money = "$5";
             }
         });
         btn_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btn_right.setButtonBackgroundColor(200);
+                btn_right.setButtonBackgroundColor(Color.parseColor("#afdcd8"));
+                btn_left.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
+                btn_middle.setButtonBackgroundColor(Color.parseColor("#dbdbdb"));
                 Money = "$10";
             }
         });
