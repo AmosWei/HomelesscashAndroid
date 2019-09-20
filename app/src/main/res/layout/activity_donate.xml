@@ -84,30 +84,18 @@
         android:textSize="17dp"
         android:layout_centerHorizontal="true"
         android:textColor="#2b00ff"
-        android:layout_below="@id/money5"
+        android:layout_below="@id/money_5"
         />
 
-    <mehdi.sakout.fancybuttons.FancyButton
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
         android:id="@+id/btnDonate"
-        android:layout_width="181dp"
-        android:layout_height="117dp"
         android:layout_below="@+id/custom_acc"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="471dp"
-        android:layout_marginBottom="80dp"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="10dp"
-        fancy:fb_borderColor="#FFFFFF"
-        fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="#dbdbdb"
-        fancy:fb_focusColor="#9bd823"
-        fancy:fb_iconPosition="left"
-        fancy:fb_radius="30dp"
-        fancy:fb_text="DONATE"
-        fancy:fb_textColor="#000000"
-        fancy:fb_textSize='25sp' />
+        android:layout_marginTop="50dp"
+        android:text="Donate"
+        android:textSize="30dp"
+        />
 
 </RelativeLayout>
