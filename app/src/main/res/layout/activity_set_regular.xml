@@ -30,21 +30,18 @@
 
     <top.androidman.SuperButton
         android:id="@+id/money5"
-        android:layout_width="wrap_content"
-        android:layout_height="68dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_below="@+id/name"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="170dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="171dp"
-        app:color_normal="#dbdbdb"
+        app:color_normal="#afdcd8"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
         app:shape="CIRCLE"
-        app:text="$5"
         app:textColor="@color/color_text_black"
+        app:text="$5"
         app:textSize="20dp" />
 
     <TextView
@@ -52,10 +49,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Every day"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_below="@+id/money5"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         />
 
     <TextView
@@ -63,10 +60,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Every week"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_below="@+id/everyday"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -74,10 +71,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Every 2 weeks"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_below="@+id/everyweek"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -85,10 +82,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Every month"
-        android:textSize="30dp"
+        android:textSize="25dp"
         android:layout_below="@id/every2weeek"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         />
 </RelativeLayout>
 

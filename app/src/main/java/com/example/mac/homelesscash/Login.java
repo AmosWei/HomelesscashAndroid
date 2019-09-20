@@ -22,7 +22,7 @@ import java.util.Arrays;
 public class Login extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
-    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com"));
+    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc"));
     String Pw = "123456";
 
     @Override
