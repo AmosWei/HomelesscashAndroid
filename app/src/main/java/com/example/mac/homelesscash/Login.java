@@ -22,7 +22,7 @@ import java.util.Arrays;
 public class Login extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
-    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc"));
+    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
     String Pw = "123456";
 
     @Override
@@ -133,7 +133,7 @@ public class Login extends AppCompatActivity {
         String username = emET.getText().toString();
         String password = pwET.getText().toString();
 
-        if(username.isEmpty() || username.length()<4 || username.length()>255){
+        if(username.isEmpty()){    //|| username.length()<4 || username.length()>255
             emET.setError("Enter valid Email address");
             valid = false;
         }else{

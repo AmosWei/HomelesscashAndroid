@@ -20,17 +20,17 @@ public class DonateNow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donate_now);
+//        setContentView(R.layout.activity_donate_now);
 
 
-        TextView tv = ((TextView)findViewById(R.id.infoDisplay));
-        tv.setText(getIntent().getStringExtra("what?"));
+//        TextView tv = ((TextView)findViewById(R.id.infoDisplay));
+//        tv.setText(getIntent().getStringExtra("what?"));
 
 
         btn_left = (SuperButton)findViewById(R.id.money2);
         btn_middle = (SuperButton)findViewById(R.id.money5);
         btn_right = (SuperButton)findViewById(R.id.money10);
-        btnDR2 = (FancyButton)findViewById(R.id.btn_DR2);
+//        btnDR2 = (FancyButton)findViewById(R.id.btn_DR2);
 
         btn_left.setOnClickListener(new View.OnClickListener() {
             @Override

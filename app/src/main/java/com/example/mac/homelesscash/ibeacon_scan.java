@@ -59,7 +59,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Object itemString = beaconListView.getItemAtPosition(i);
-                Intent openDonationPage = new Intent(ibeacon_scan.this, DonateNow.class);
+                Intent openDonationPage = new Intent(ibeacon_scan.this, Donate.class);
                 openDonationPage.putExtra("what?", (String) itemString);
                 startActivity(openDonationPage);
             }

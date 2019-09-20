@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import top.androidman.SuperButton;
@@ -17,8 +18,15 @@ public class Donate extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_donate);
+        TextView tv = ((TextView)findViewById(R.id.infoDisplay));
+        tv.setText(getIntent().getStringExtra("what?"));
 
         money_2 = (SuperButton)findViewById(R.id.money_2);
         money_5 = (SuperButton)findViewById(R.id.money_5);
