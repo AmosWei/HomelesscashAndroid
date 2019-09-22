@@ -1,7 +1,8 @@
 package com.example.mac.homelesscash;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import top.androidman.SuperButton;
