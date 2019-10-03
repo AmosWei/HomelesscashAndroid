@@ -23,6 +23,18 @@
         />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/login_button"
+        android:layout_marginTop="300dp"
+        android:text="SignUp"
+        android:textSize="30dp"
+        android:textColor="@color/com_facebook_blue"
+        />
+
+    <TextView
         android:id="@+id/tx1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

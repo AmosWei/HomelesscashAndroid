@@ -78,7 +78,7 @@
         android:layout_marginTop="30sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DONATE REGULARLY TO JOHN"
+        android:text="DONATE REGULARLY TO "
         android:layout_below="@id/share"
         android:layout_centerHorizontal="true"
         android:textSize="20dp"

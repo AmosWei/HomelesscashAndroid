@@ -5,8 +5,10 @@ import android.graphics.Color;
 //import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import mehdi.sakout.fancybuttons.FancyButton;
 import top.androidman.SuperButton;
@@ -14,8 +16,10 @@ import top.androidman.SuperButton;
 public class DR extends AppCompatActivity {
 
     SuperButton money_2, money_5, money_10;
+    EditText InputMoney;
     Button btnDR2;
-    String Money;
+    String InMoney;
+    String Money = "0";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +28,10 @@ public class DR extends AppCompatActivity {
         money_2 = (SuperButton)findViewById(R.id.money2);
         money_5 = (SuperButton)findViewById(R.id.money5);
         money_10 = (SuperButton)findViewById(R.id.money10);
+        InputMoney = (EditText)findViewById(R.id.editText3);
         btnDR2 = (Button)findViewById(R.id.btn_DR2);
+        InMoney = InputMoney.getText().toString();
+
 
         money_2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,9 +67,16 @@ public class DR extends AppCompatActivity {
         btnDR2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DR.this,SetRegular.class);
-                intent.putExtra("data",Money);
-                startActivity(intent);
+                if(Money.equals("0")){
+                    Intent intent = new Intent(DR.this,SetRegular.class);
+                    intent.putExtra("data","$"+InMoney);
+                    startActivity(intent);
+                } else{
+                    Intent intent = new Intent(DR.this,SetRegular.class);
+                    intent.putExtra("data",Money);
+                    startActivity(intent);
+
+                }
             }
         });
     }

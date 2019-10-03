@@ -16,6 +16,7 @@ public class Donate extends AppCompatActivity {
     Button btnDonate;
     SuperButton money_5, money_10, money_2;
     String Money;
+    String Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class Donate extends AppCompatActivity {
 
         setContentView(R.layout.activity_donate);
         TextView tv = ((TextView)findViewById(R.id.infoDisplay));
+        Name = getIntent().getStringExtra("what?");
         tv.setText(getIntent().getStringExtra("what?"));
 
         money_2 = (SuperButton)findViewById(R.id.money_2);
@@ -73,6 +75,7 @@ public class Donate extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Donate.this,TY.class);
                 intent.putExtra("data",Money);
+                intent.putExtra("Name",Name);
                 startActivity(intent);
 
             }

@@ -14,6 +14,7 @@ import top.androidman.SuperButton;
 public class TY extends AppCompatActivity {
     TextView text_DR;
     SuperButton btMoney;
+    String Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +24,10 @@ public class TY extends AppCompatActivity {
         Intent intent = getIntent();
         btMoney = (SuperButton)findViewById(R.id.donated_money);
         btMoney.setText(intent.getStringExtra("data"));
+        Name = getIntent().getStringExtra("Name");
 
         text_DR = (TextView)findViewById(R.id.DR_TEXT);
+        text_DR.setText("Donate Regularly To "+Name);
         text_DR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

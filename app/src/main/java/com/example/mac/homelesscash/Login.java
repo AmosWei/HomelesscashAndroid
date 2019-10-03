@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +26,7 @@ import java.util.Arrays;
 public class Login extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
+    TextView sgTV;
     ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
     String Pw = "123456";
 
@@ -33,6 +37,15 @@ public class Login extends AppCompatActivity {
         okB = (Button)findViewById(R.id.okB);
         emET = (EditText)findViewById(R.id.emET);
         pwET = (EditText)findViewById(R.id.pwET);
+        sgTV = (TextView)findViewById(R.id.signUp);
+
+        sgTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(Login.this, SignUp.class);
+                startActivity(intent2);
+            }
+        });
 
 
         okB.setOnClickListener(new View.OnClickListener() {
