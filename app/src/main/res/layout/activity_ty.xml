@@ -40,7 +40,6 @@
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
         app:shape="CIRCLE"
-        app:text="$5"
         app:textColor="@color/color_text_black"
         app:textSize="30dp" />
 

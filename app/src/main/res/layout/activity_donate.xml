@@ -88,7 +88,6 @@
         android:id="@+id/btnDonate"
         android:layout_width="200dp"
         android:layout_height="80dp"
-        android:layout_below="@+id/custom_acc"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -98,15 +97,9 @@
         android:text="Donate"
         android:textSize="30dp" />
 
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="270dp"/>
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/cus_acc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

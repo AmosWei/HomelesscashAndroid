@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import mehdi.sakout.fancybuttons.FancyButton;
@@ -15,8 +16,10 @@ import top.androidman.SuperButton;
 public class Donate extends AppCompatActivity {
     Button btnDonate;
     SuperButton money_5, money_10, money_2;
-    String Money;
+    String Money= "0";
     String Name;
+    String InMoney;
+    EditText Input;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,8 @@ public class Donate extends AppCompatActivity {
         money_5 = (SuperButton)findViewById(R.id.money_5);
         money_10 = (SuperButton)findViewById(R.id.money_10);
         btnDonate = (Button)findViewById(R.id.btnDonate);
+        Input = (EditText)findViewById(R.id.cus_acc);
+        InMoney = Input.getText().toString();
 
         money_2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +51,8 @@ public class Donate extends AppCompatActivity {
             }
         });
 
-        money_5.setOnClickListener(new View.OnClickListener() {
+        money_5.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 money_5.setButtonBackgroundColor(200);
@@ -73,10 +79,19 @@ public class Donate extends AppCompatActivity {
         btnDonate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Donate.this,TY.class);
-                intent.putExtra("data",Money);
-                intent.putExtra("Name",Name);
-                startActivity(intent);
+
+                if(Money.equals("0")){
+                    Intent intent = new Intent(Donate.this,TY.class);
+                    intent.putExtra("data","$"+Input.getText().toString());
+                    intent.putExtra("Name",Name);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(Donate.this, TY.class);
+                    intent.putExtra("data", Money);
+                    intent.putExtra("Name", Name);
+                    startActivity(intent);
+
+                }
 
             }
         });
