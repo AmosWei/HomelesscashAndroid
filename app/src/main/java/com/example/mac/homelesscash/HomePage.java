@@ -21,7 +21,7 @@ public class HomePage extends AppCompatActivity {
         donationHistory = (TextView)findViewById(R.id.DH);
         donation = (TextView)findViewById(R.id.donations);
         donationmap = (TextView)findViewById(R.id.average);
-        beaconscanner = (TextView)findViewById(R.id.people);
+        beaconscanner = (TextView)findViewById(R.id.mainDonation);
         donationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

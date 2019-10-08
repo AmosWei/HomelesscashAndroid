@@ -13,11 +13,9 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
-        android:layout_alignTop="@id/name"
+        android:layout_height="300dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="113dp" />
+        android:layout_marginTop="82dp" />
 
     <TextView
         android:id="@+id/name"
@@ -31,16 +29,20 @@
 
     <ImageButton
         android:id="@+id/scan_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="207dp"
+        android:layout_height="192dp"
         android:layout_below="@+id/listView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="41dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginBottom="97dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleType="centerCrop"
         android:scaleX="0.4"
         android:scaleY="0.4"
-        app:srcCompat="@drawable/black_scanner1" />
+        app:srcCompat="@drawable/black_scanner" />
+
 </RelativeLayout>
