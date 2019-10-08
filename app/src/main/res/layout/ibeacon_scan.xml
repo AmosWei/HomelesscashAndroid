@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,12 +13,11 @@
     <ListView
         android:id="@+id/listView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:layout_alignTop="@id/name"
         android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginTop="113dp" />
 
     <TextView
         android:id="@+id/name"
@@ -28,4 +28,19 @@
         android:text="Homeless people nearby"
         android:textColor="#000000"
         android:textSize="25dp" />
+
+    <ImageButton
+        android:id="@+id/scan_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:scaleX="0.4"
+        android:scaleY="0.4"
+        app:srcCompat="@drawable/black_scanner1" />
 </RelativeLayout>
