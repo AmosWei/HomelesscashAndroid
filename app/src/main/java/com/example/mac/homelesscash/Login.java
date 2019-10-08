@@ -1,9 +1,6 @@
 package com.example.mac.homelesscash;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,9 +12,7 @@ import android.net.NetworkInfo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,13 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.altbeacon.beacon.BeaconManager;
-import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.Region;
 import org.altbeacon.beacon.startup.BootstrapNotifier;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /*
  * Created by Hubert, modified on 16/09/19
@@ -49,8 +39,6 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     private DatabaseReference databaseReference;    // reference object
     private ValueEventListener valueEventListener;
     DataSnapshot ds;
-    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
-    String Pw = "123456";
 
     private BeaconManager beaconManager;
 
@@ -90,8 +78,8 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
 
         setContentView(R.layout.activity_signup);
         okB = (Button)findViewById(R.id.okB);
-        emET = (EditText)findViewById(R.id.emET);
-        pwET = (EditText)findViewById(R.id.pwET);
+        emET = (EditText)findViewById(R.id.usernameET);
+        pwET = (EditText)findViewById(R.id.passwordET);
         sgTV = (TextView)findViewById(R.id.signUp);
 
         sgTV.setOnClickListener(new View.OnClickListener() {
@@ -121,23 +109,23 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     }
 
     public void login(){
-        
+
         if(!validate()){
             okB.setEnabled(true);
             return;
         }
-        
+
         okB.setEnabled(false);
-        
+
         final String username = emET.getText().toString();
         final String password = pwET.getText().toString();
-        
+
         loginAction(username,password);
 
     }
 
 
-    /*private void loginAction(String username, String password) {
+    private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
         if(ds.hasChild(username)){
@@ -149,16 +137,6 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
             else{
                 onLoginFailed();
             }
-        }else{
-            onLoginFailed();
-        }
-    }*/
-    private void loginAction(String username, String password) {
-        Preferences.showLoading(this, "Log In", "Authenticating...");
-        final Activity act = this;
-        if(uids.contains(username)  && password.equals(Pw)){
-            startNavigation();
-            onLoginSuccess();
         }else{
             onLoginFailed();
         }

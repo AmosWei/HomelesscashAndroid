@@ -14,7 +14,7 @@
         android:id="@+id/login_button"
         android:layout_width="276dp"
         android:layout_height="100dp"
-        android:layout_alignBottom="@+id/pwET"
+        android:layout_alignBottom="@+id/passwordET"
         android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
@@ -45,7 +45,7 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/emET"
+        android:id="@+id/usernameET"
         android:layout_width="230dp"
         android:layout_height="59dp"
         android:layout_below="@id/tx1"
@@ -55,15 +55,15 @@
         android:layout_marginTop="98dp"
         android:layout_marginEnd="89dp"
         android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress"
+        android:hint="username"
+        android:inputType="text"
         android:textColorHint="@android:color/black" />
 
     <EditText
-        android:id="@+id/pwET"
+        android:id="@+id/passwordET"
         android:layout_width="228dp"
         android:layout_height="61dp"
-        android:layout_below="@+id/emET"
+        android:layout_below="@+id/usernameET"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="92dp"
@@ -78,7 +78,7 @@
         android:id="@+id/okB"
         android:layout_width="158dp"
         android:layout_height="59dp"
-        android:layout_below="@id/pwET"
+        android:layout_below="@id/passwordET"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="123dp"

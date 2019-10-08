@@ -9,14 +9,13 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class SignUp extends AppCompatActivity {
+    String username;
     String email;
     String password;
     private FirebaseDatabase firebaseDatabase;      // database object
     private DatabaseReference databaseReference;    // reference object
-    private ValueEventListener valueEventListener;  // listener for database reading*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,18 +27,19 @@ public class SignUp extends AppCompatActivity {
         databaseReference = firebaseDatabase.getReference().child("User");//Firebase writing reference
 
 
-        final EditText emailET = findViewById(R.id.emET);
-        final EditText passwordET = findViewById(R.id.pwET);
+        final EditText usernameET = findViewById(R.id.usernameET);
+        final EditText emailET = findViewById(R.id.passwordET);
+        final EditText passwordET = findViewById(R.id.passwordET);
 
         final Button button = findViewById(R.id.okB);
-        /*button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                username = usernameET.getText().toString();
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
-                Donor donor = new Donor("to be added", email, password, 0);
-                databaseReference.child(email).setValue(donor);
-                //databaseReference.push().setValue(donor);
+                Donor donor = new Donor(username, email, password, 0);
+                databaseReference.child(username).setValue(donor);
             }
-        });*/
+        });
     }
 }
