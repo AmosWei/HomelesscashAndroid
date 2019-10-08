@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "384693637857",
-    "firebase_url": "https://homelesscash.firebaseio.com",
-    "project_id": "homelesscash",
-    "storage_bucket": "homelesscash.appspot.com"
+    "project_number": "535885027989",
+    "firebase_url": "https://homelesscash-8cd43.firebaseio.com",
+    "project_id": "homelesscash-8cd43",
+    "storage_bucket": "homelesscash-8cd43.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:384693637857:android:011c387c593ad6788f1da0",
+        "mobilesdk_app_id": "1:535885027989:android:3a99bf908394e1416ad99c",
         "android_client_info": {
           "package_name": "com.example.mac.homelesscash"
         }
       },
       "oauth_client": [
         {
-          "client_id": "384693637857-31djoe7d9oqv24t1i603d7ok4rlvvnq4.apps.googleusercontent.com",
+          "client_id": "535885027989-cj5nfmiqf4c9rm21gvmaa1u6mg59ggu2.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyALA8FRVvoutKTV51HvoEWEbM9ENYXfLjU"
+          "current_key": "AIzaSyD_whdDRo_S7B21nusBmBoFhuOvN14UOx8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "384693637857-31djoe7d9oqv24t1i603d7ok4rlvvnq4.apps.googleusercontent.com",
+              "client_id": "535885027989-cj5nfmiqf4c9rm21gvmaa1u6mg59ggu2.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -57,7 +57,6 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
         this.beaconManager.bind(this);
 
 
-
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {  //Grant location access
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -81,10 +80,10 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                 startActivity(openDonationPage);
             }
         });
-}
+    }
 
 
-        // read from Firebase
+    // read from Firebase
         /*valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -96,7 +95,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
             }
         };
         //databaseReference.addValueEventListener(valueEventListener);*/
-    }
+
 
     @Override
     protected void onStart() {

@@ -4,18 +4,21 @@ public class Donor {
     String username;
     String email;
     String password;
-    String beaconID;
     int totalAmount;
 
     public Donor(){
     }
 
-    public Donor(String username, String email, String password, String beaconID, int totalAmount){
+    public Donor(String username, String email, String password, int totalAmount){
         this.username = username;
         this.email = email;
         this.password = password;
-        this.beaconID = beaconID;
         this.totalAmount = totalAmount;
+    }
+
+    public Donor(String email, String password){
+        this.email = email;
+        this.password = password;
     }
 
     public String getUsername(){
@@ -40,14 +43,6 @@ public class Donor {
 
     public void setPassword(String password){
         this.password = password;
-    }
-
-    public String getBeaconID(){
-        return beaconID;
-    }
-
-    public void setBeaconID(String beaconID){
-        this.beaconID = beaconID;
     }
 
     public int getTotalAmount(){

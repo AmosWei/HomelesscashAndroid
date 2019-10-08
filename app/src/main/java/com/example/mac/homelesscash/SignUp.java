@@ -12,9 +12,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SignUp extends AppCompatActivity {
-    /*String email;
+    String email;
     String password;
-    Donor donor;
     private FirebaseDatabase firebaseDatabase;      // database object
     private DatabaseReference databaseReference;    // reference object
     private ValueEventListener valueEventListener;  // listener for database reading*/
@@ -25,7 +24,11 @@ public class SignUp extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
 
 
-        /*final EditText emailET = findViewById(R.id.emET);
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("User");//Firebase writing reference
+
+
+        final EditText emailET = findViewById(R.id.emET);
         final EditText passwordET = findViewById(R.id.pwET);
 
         final Button button = findViewById(R.id.okB);
@@ -33,10 +36,11 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
-                donor = new Donor();
-                databaseReference.child(localInput).setValue(user);
-                //databaseReference.push().setValue(user);    //write to database
+                Donor donor = new Donor(email, password);
+                //databaseReference.child(email).setValue(donor);
+                databaseReference.push().setValue(donor);
+                emailET.setText(password);
             }
-        });*/
+        });
     }
 }
