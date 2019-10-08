@@ -56,8 +56,12 @@ public class HomePage extends AppCompatActivity {
         });
 
         usernameTV.setText(Login.donor.username);
-        donations.setText(Login.donor.numberOfDonation);
-        people.setText(Login.donor.numberOfRecipient);
+        int numberOfDonation = Login.donor.numberOfDonation;
+        String numberOfDonationStr = String.valueOf(numberOfDonation);
+        int numberOfRecipient = Login.donor.numberOfRecipient;
+        String numberOfRecipientStr = String.valueOf(numberOfRecipient);
+        donations.setText(numberOfDonationStr);
+        people.setText(numberOfRecipientStr);
 
     }
 

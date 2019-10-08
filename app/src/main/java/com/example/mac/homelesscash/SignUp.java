@@ -28,7 +28,7 @@ public class SignUp extends AppCompatActivity {
 
 
         final EditText usernameET = findViewById(R.id.usernameET);
-        final EditText emailET = findViewById(R.id.passwordET);
+        final EditText emailET = findViewById(R.id.emailET);
         final EditText passwordET = findViewById(R.id.passwordET);
 
         final Button button = findViewById(R.id.okB);
