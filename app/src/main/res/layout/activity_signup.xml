@@ -22,14 +22,16 @@
         android:layout_marginBottom="-213dp" />
 
     <TextView
-        android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/signUp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/login_button"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="300dp"
         android:text="SignUp"
+        android:textSize="30dp"
         android:textColor="@color/com_facebook_blue"
-        android:textSize="30dp" />
+        />
 
     <TextView
         android:id="@+id/tx1"
@@ -83,7 +85,7 @@
         android:layout_marginTop="90dp"
         android:layout_marginEnd="130dp"
         android:background="#4d000000"
-        android:text="Login"
+        android:text="Go"
         android:textSize="30dp" />
 
     <ImageView
