@@ -36,10 +36,9 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View v) {
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
-                Donor donor = new Donor(email, password);
-                //databaseReference.child(email).setValue(donor);
-                databaseReference.push().setValue(donor);
-                emailET.setText(password);
+                Donor donor = new Donor("to be added", email, password, 0);
+                databaseReference.child(email).setValue(donor);
+                //databaseReference.push().setValue(donor);
             }
         });
     }
