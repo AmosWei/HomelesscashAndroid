@@ -29,7 +29,7 @@
         android:inputType="text" />
 
     <EditText
-        android:id="@+id/passwordET"
+        android:id="@+id/emailET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/usernameET"
@@ -43,7 +43,7 @@
         android:id="@+id/passwordET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/passwordET"
+        android:layout_below="@+id/emailET"
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="password"
