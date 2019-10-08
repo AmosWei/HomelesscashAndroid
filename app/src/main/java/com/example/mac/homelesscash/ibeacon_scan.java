@@ -18,6 +18,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.altbeacon.beacon.*;
 import java.util.*;
 import java.lang.Math;
@@ -29,6 +36,10 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
     private ListView beaconListView;
     private ArrayAdapter<String> adapter;
     private BeaconManager beaconManager;
+    private FirebaseDatabase firebaseDatabase;      // database object
+    private DatabaseReference databaseReference;    // reference object
+    private ValueEventListener valueEventListener;
+    public static Donor donor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +77,20 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                 startActivity(openDonationPage);
             }
         });
+
+
+        // read from Firebase
+        /*valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                donor = dataSnapshot.getValue(Donor.class);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        //databaseReference.addValueEventListener(valueEventListener);*/
     }
 
     @Override
