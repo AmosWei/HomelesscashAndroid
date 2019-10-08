@@ -49,6 +49,8 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     private DatabaseReference databaseReference;    // reference object
     private ValueEventListener valueEventListener;
     DataSnapshot ds;
+    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
+    String Pw = "123456";
 
     private BeaconManager beaconManager;
 
@@ -135,7 +137,7 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     }
 
 
-    private void loginAction(String username, String password) {
+    /*private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
         if(ds.hasChild(username)){
@@ -147,6 +149,16 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
             else{
                 onLoginFailed();
             }
+        }else{
+            onLoginFailed();
+        }
+    }*/
+    private void loginAction(String username, String password) {
+        Preferences.showLoading(this, "Log In", "Authenticating...");
+        final Activity act = this;
+        if(uids.contains(username)  && password.equals(Pw)){
+            startNavigation();
+            onLoginSuccess();
         }else{
             onLoginFailed();
         }
