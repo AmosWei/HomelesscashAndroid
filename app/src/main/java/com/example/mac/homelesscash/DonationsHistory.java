@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class DonationsHistory extends AppCompatActivity {
+//TODO
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

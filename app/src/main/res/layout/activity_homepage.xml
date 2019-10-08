@@ -95,18 +95,6 @@
         />
 
     <TextView
-        android:id="@+id/personal_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:text="Personal information"
-        android:textSize="20dp"
-        android:layout_marginLeft="35sp"
-        android:layout_marginTop="190dp"
-        />
-
-    <TextView
         android:id="@+id/Notifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
