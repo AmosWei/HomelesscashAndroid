@@ -23,6 +23,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.Region;
@@ -39,8 +45,10 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     Button okB;
     EditText emET,pwET;
     TextView sgTV;
-    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
-    String Pw = "123456";
+    private FirebaseDatabase firebaseDatabase;      // database object
+    private DatabaseReference databaseReference;    // reference object
+    private ValueEventListener valueEventListener;
+    DataSnapshot ds;
 
     private BeaconManager beaconManager;
 
@@ -60,7 +68,20 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
         //startService(intent);
 
 
-
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("User");
+        valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                ds = dataSnapshot;
+                //Donor donor = dataSnapshot.child(firebaseEmail).getValue(Donor.class);
+                //firebasePassword = donor.password;
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        };
+        databaseReference.addValueEventListener(valueEventListener);
 
 
 
@@ -113,18 +134,24 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
 
     }
 
+
     private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
-        if(uids.contains(username)  && password.equals(Pw)){
-            startNavigation();
-            onLoginSuccess();
+        if(ds.hasChild(username)){
+            String firebasePassword = ds.child(username).getValue(Donor.class).password;
+            if(password.equals(firebasePassword)){
+                startNavigation();
+                onLoginSuccess();
+            }
+            else{
+                onLoginFailed();
+            }
         }else{
             onLoginFailed();
         }
-        
-
     }
+
 
     private void startNavigation() {
         Intent intent = new Intent(this, HomePage.class);
