@@ -37,7 +37,7 @@ public class SignUp extends AppCompatActivity {
                 username = usernameET.getText().toString();
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
-                Donor donor = new Donor(username, email, password, 0);
+                Donor donor = new Donor(username, email, password, 0, 0, 0);
                 databaseReference.child(username).setValue(donor);
             }
         });

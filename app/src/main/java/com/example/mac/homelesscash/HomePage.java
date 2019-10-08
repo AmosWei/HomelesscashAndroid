@@ -8,10 +8,12 @@ import android.view.View;
 import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity {
-    TextView donation;
+    TextView donations;
     TextView donationHistory;
     TextView donationmap;
     TextView beaconscanner;
+    TextView usernameTV;
+    TextView people;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,9 +21,11 @@ public class HomePage extends AppCompatActivity {
 //        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_homepage);
         donationHistory = (TextView)findViewById(R.id.DH);
-        donation = (TextView)findViewById(R.id.donations);
+        donations = (TextView)findViewById(R.id.donations);
         donationmap = (TextView)findViewById(R.id.average);
         beaconscanner = (TextView)findViewById(R.id.mainDonation);
+        usernameTV = (TextView)findViewById(R.id.name);
+        people = findViewById(R.id.people);
         donationHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,7 +33,7 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        donation.setOnClickListener(new View.OnClickListener() {
+        donations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent_1 = new Intent(HomePage.this,Donate.class);
@@ -50,6 +54,10 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent_scanner);
             }
         });
+
+        usernameTV.setText(Login.donor.username);
+        donations.setText(Login.donor.numberOfDonation);
+        people.setText(Login.donor.numberOfRecipient);
 
     }
 

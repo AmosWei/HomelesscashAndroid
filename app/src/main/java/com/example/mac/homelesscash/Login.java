@@ -39,6 +39,7 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
     private DatabaseReference databaseReference;    // reference object
     private ValueEventListener valueEventListener;
     DataSnapshot ds;
+    public static Donor donor;
 
     private BeaconManager beaconManager;
 
@@ -131,6 +132,7 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
         if(ds.hasChild(username)){
             String firebasePassword = ds.child(username).getValue(Donor.class).password;
             if(password.equals(firebasePassword)){
+                donor = ds.child(username).getValue(Donor.class);
                 startNavigation();
                 onLoginSuccess();
             }

@@ -5,21 +5,19 @@ public class Donor {
     String email;
     String password;
     int totalAmount;
+    int numberOfDonation;
+    int numberOfRecipient;
 
     public Donor(){
     }
 
-    public Donor(String username, String email, String password, int totalAmount){
+    public Donor(String username, String email, String password, int totalAmount, int numberOfDonation, int numberOfRecipient){
         this.username = username;
         this.email = email;
         this.password = password;
         this.totalAmount = totalAmount;
     }
 
-    public Donor(String email, String password){
-        this.email = email;
-        this.password = password;
-    }
 
     public String getUsername(){
         return username;
@@ -51,5 +49,21 @@ public class Donor {
 
     public void setTotalAmount(int totalAmount){
         this.totalAmount = totalAmount;
+    }
+
+    public int getNumberOfDonation(){
+        return numberOfDonation;
+    }
+
+    public void setNumberOfDonation(int numberOfDonation){
+        this.numberOfDonation = numberOfDonation;
+    }
+
+    public int getNumberOfRecipient(){
+        return numberOfRecipient;
+    }
+
+    public void setNumberOfRecipient(int numberOfRecipient){
+        this.numberOfRecipient = numberOfRecipient;
     }
 }
