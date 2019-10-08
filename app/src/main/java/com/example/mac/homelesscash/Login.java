@@ -1,6 +1,10 @@
 package com.example.mac.homelesscash;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,12 +13,20 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 //import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.altbeacon.beacon.BeaconManager;
+import org.altbeacon.beacon.BeaconParser;
+import org.altbeacon.beacon.Region;
+import org.altbeacon.beacon.startup.BootstrapNotifier;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -23,16 +35,36 @@ import java.util.Arrays;
 /*
  * Created by Hubert, modified on 16/09/19
  */
-public class Login extends AppCompatActivity {
+public class Login extends AppCompatActivity implements BootstrapNotifier {
     Button okB;
     EditText emET,pwET;
     TextView sgTV;
     ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
     String Pw = "123456";
 
+    private BeaconManager beaconManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        this.beaconManager = BeaconManager.getInstanceForApplication(this);
+
+
+        Intent intent = new Intent(this, backgroundScanner.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+        ContextCompat.startForegroundService(this, intent);
+        //startService(intent);
+
+
+
+
+
+
+
         setContentView(R.layout.activity_signup);
         okB = (Button)findViewById(R.id.okB);
         emET = (EditText)findViewById(R.id.emET);
@@ -161,5 +193,20 @@ public class Login extends AppCompatActivity {
             pwET.setError(null);
         }
         return valid;
+    }
+
+    @Override
+    public void didEnterRegion(Region region) {
+
+    }
+
+    @Override
+    public void didExitRegion(Region region) {
+
+    }
+
+    @Override
+    public void didDetermineStateForRegion(int i, Region region) {
+
     }
 }

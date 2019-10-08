@@ -18,6 +18,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,7 +32,6 @@ import java.util.*;
 import java.lang.Math;
 
 public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
-
     private static final String TAG = "BEACON_PROJECT";
     private ArrayList<String> beaconList;
     private ListView beaconListView;
@@ -54,6 +55,9 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
         //set up a parser that will look for Bluetooth packets
         // that match the layout. Not all Bluetooth devices are iBeacons, so specifying to only scan for hardware that meets the specification.
         this.beaconManager.bind(this);
+
+
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (this.checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {  //Grant location access
                 final AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -77,6 +81,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                 startActivity(openDonationPage);
             }
         });
+}
 
 
         // read from Firebase
@@ -130,7 +135,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                             String uuid = beacon.getId1().toString();
 //                            String major = beacon.getId2().toString();
 //                            String minor = beacon.getId3().toString();
-                            String toDisplay = name + " ---- Distance: " + distance + "m  "; // FIXME: distance not very accurate
+                            String toDisplay = name + "  ---- Distance: " + distance + "m  "; // FIXME: distance not very accurate
                             beaconList.add(toDisplay);
                         }
                     }
