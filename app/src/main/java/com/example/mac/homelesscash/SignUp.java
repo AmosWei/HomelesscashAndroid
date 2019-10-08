@@ -32,7 +32,7 @@ public class SignUp extends AppCompatActivity {
         final EditText passwordET = findViewById(R.id.pwET);
 
         final Button button = findViewById(R.id.okB);
-        button.setOnClickListener(new View.OnClickListener() {
+        /*button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 email = emailET.getText().toString();
                 password = passwordET.getText().toString();
@@ -40,6 +40,6 @@ public class SignUp extends AppCompatActivity {
                 databaseReference.child(email).setValue(donor);
                 //databaseReference.push().setValue(donor);
             }
-        });
+        });*/
     }
 }
