@@ -20,19 +20,19 @@ public class HomePage extends AppCompatActivity {
 //        FacebookSdk.sdkInitialize(getApplicationContext());
 //        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_homepage);
-        donationHistory = (TextView)findViewById(R.id.DH);
+//        donationHistory = (TextView)findViewById(R.id.DH);
         donations = (TextView)findViewById(R.id.donations);
         donationmap = (TextView)findViewById(R.id.average);
         beaconscanner = (TextView)findViewById(R.id.mainDonation);
         usernameTV = (TextView)findViewById(R.id.name);
         people = findViewById(R.id.people);
-        donationHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(HomePage.this, DonationsHistory.class);
-                startActivity(intent);
-            }
-        });
+//        donationHistory.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(HomePage.this, DonationsHistory.class);
+//                startActivity(intent);
+//            }
+//        });
         donations.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,13 +55,13 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        usernameTV.setText(Login.donor.username);
-        int numberOfDonation = Login.donor.numberOfDonation;
-        String numberOfDonationStr = String.valueOf(numberOfDonation);
-        int numberOfRecipient = Login.donor.numberOfRecipient;
-        String numberOfRecipientStr = String.valueOf(numberOfRecipient);
-        donations.setText(numberOfDonationStr);
-        people.setText(numberOfRecipientStr);
+//        usernameTV.setText(Login.donor.username);
+//        int numberOfDonation = Login.donor.numberOfDonation;
+//        String numberOfDonationStr = String.valueOf(numberOfDonation);
+//        int numberOfRecipient = Login.donor.numberOfRecipient;
+//        String numberOfRecipientStr = String.valueOf(numberOfRecipient);
+//        donations.setText(numberOfDonationStr);
+//        people.setText(numberOfRecipientStr);
 
     }
 

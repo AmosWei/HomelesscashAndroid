@@ -1,7 +1,6 @@
 package com.example.mac.homelesscash;
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,87 +8,32 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 //import android.support.v7.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import androidx.appcompat.app.AppCompatActivity;
 
-import org.altbeacon.beacon.BeaconManager;
-import org.altbeacon.beacon.Region;
-import org.altbeacon.beacon.startup.BootstrapNotifier;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
  * Created by Hubert, modified on 16/09/19
  */
-public class Login extends AppCompatActivity implements BootstrapNotifier {
+public class Login extends AppCompatActivity {
     Button okB;
     EditText emET,pwET;
-    TextView sgTV;
-    private FirebaseDatabase firebaseDatabase;      // database object
-    private DatabaseReference databaseReference;    // reference object
-    private ValueEventListener valueEventListener;
-    DataSnapshot ds;
-    public static Donor donor;
-
-    private BeaconManager beaconManager;
-
+    ArrayList<String> uids = new ArrayList<>(Arrays.asList("ZoeDavid@gmail.com","test@gmail.com","testacc","a"));
+    String Pw = "123456";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        this.beaconManager = BeaconManager.getInstanceForApplication(this);
-
-
-        Intent intent = new Intent(this, backgroundScanner.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
-
-        ContextCompat.startForegroundService(this, intent);
-        //startService(intent);
-
-
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("User");
-        valueEventListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                ds = dataSnapshot;
-                //Donor donor = dataSnapshot.child(firebaseEmail).getValue(Donor.class);
-                //firebasePassword = donor.password;
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        };
-        databaseReference.addValueEventListener(valueEventListener);
-
-
-
-
         setContentView(R.layout.activity_signup);
         okB = (Button)findViewById(R.id.okB);
-        emET = (EditText)findViewById(R.id.usernameET);
-        pwET = (EditText)findViewById(R.id.passwordET);
-        sgTV = (TextView)findViewById(R.id.signUp);
-
-        sgTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent2 = new Intent(Login.this, SignUp.class);
-                startActivity(intent2);
-            }
-        });
+//        emET = (EditText)findViewById(R.id.emET);
+//        pwET = (EditText)findViewById(R.id.pwET);
 
 
         okB.setOnClickListener(new View.OnClickListener() {
@@ -97,7 +41,7 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
             public void onClick(View v) {
 
                 login();
-                }
+            }
 
         });
 
@@ -125,25 +69,18 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
 
     }
 
-
     private void loginAction(String username, String password) {
         Preferences.showLoading(this, "Log In", "Authenticating...");
         final Activity act = this;
-        if(ds.hasChild(username)){
-            String firebasePassword = ds.child(username).getValue(Donor.class).password;
-            if(password.equals(firebasePassword)){
-                donor = ds.child(username).getValue(Donor.class);
-                startNavigation();
-                onLoginSuccess();
-            }
-            else{
-                onLoginFailed();
-            }
+        if(uids.contains(username)  && password.equals(Pw)){
+            startNavigation();
+            onLoginSuccess();
         }else{
             onLoginFailed();
         }
-    }
 
+
+    }
 
     private void startNavigation() {
         Intent intent = new Intent(this, HomePage.class);
@@ -212,20 +149,5 @@ public class Login extends AppCompatActivity implements BootstrapNotifier {
             pwET.setError(null);
         }
         return valid;
-    }
-
-    @Override
-    public void didEnterRegion(Region region) {
-
-    }
-
-    @Override
-    public void didExitRegion(Region region) {
-
-    }
-
-    @Override
-    public void didDetermineStateForRegion(int i, Region region) {
-
     }
 }

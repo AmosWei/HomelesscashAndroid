@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
+        android:outlineSpotShadowColor="@color/color_text_black"
         android:id="@+id/visaCheckBox"/>
 
     <ImageView
@@ -63,8 +64,6 @@
         android:layout_below="@+id/wwImage"
         android:layout_centerHorizontal="true"
         android:id="@+id/cnButton"/>
-
-
 
 
 </RelativeLayout>

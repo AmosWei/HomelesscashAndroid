@@ -33,50 +33,49 @@
         android:id="@+id/money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$5"
+        android:text="$9"
         android:textSize="25dp"
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         />
 
+
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="21/3/19 | 2:30pm"
-        android:textSize="15dp"
         android:layout_below="@id/money"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        />
+        android:layout_marginTop="23dp"
+        android:text="21/3/19 | 2:30pm"
+        android:textSize="15dp" />
 
     <ImageView
         android:id="@+id/map"
         android:layout_width="273dp"
         android:layout_height="187dp"
         android:layout_below="@+id/date"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="34dp"
         android:src="@drawable/map" />
-
-
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/btn_DR1"
         android:layout_width="wrap_content"
-        android:layout_height="154dp"
+        android:layout_height="117dp"
         android:layout_below="@+id/map"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="126dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="68dp"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="20dp"
         android:paddingBottom="10dp"
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="1dp"
-        fancy:fb_defaultColor="#dbdbdb"
+        fancy:fb_defaultColor="@color/white"
         fancy:fb_focusColor="#9bd823"
         fancy:fb_iconPosition="left"
         fancy:fb_radius="30dp"

@@ -12,14 +12,15 @@
         <activity android:name=".PaymentOption"></activity>
         <activity android:name=".SignUp" />
         <activity android:name=".SetRegular" />
-        <activity android:name=".Login">
+        <activity android:name=".Login"/>
+
+        <activity android:name=".HomePage" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomePage" />
         <activity android:name=".DonationsHistory" />
         <activity android:name=".DH2" />
         <activity android:name=".DR" />

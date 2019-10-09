@@ -57,14 +57,14 @@
         android:layout_marginEnd="68dp"
         android:layout_toStartOf="@+id/people"
         android:layout_toEndOf="@+id/donations"
-        android:text="$12"
+        android:text="$9"
         android:textSize="30sp"
         android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total"
+        android:text="History"
         android:layout_below="@+id/average"
         android:layout_centerHorizontal="true"
         />
@@ -94,14 +94,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/average"
-        android:textStyle="bold"
-        android:text="Payment"
-        android:layout_marginTop="70dp"
+        android:layout_alignParentTop="true"
+
         android:layout_marginLeft="35sp"
+        android:layout_marginTop="241dp"
+        android:text="Payment"
         android:textColor="#000000"
         android:textSize="20dp"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Notifications"
@@ -109,20 +109,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35sp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="303dp"
         android:text="Notifications"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/DH"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="35sp"
-        android:layout_marginTop="355dp"
-        android:text="Donation history"
         android:textColor="#000000"
         android:textSize="20dp"
         android:textStyle="bold" />
@@ -133,7 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="35sp"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="371dp"
         android:text="Get help"
         android:textColor="#000000"
         android:textSize="20dp"
