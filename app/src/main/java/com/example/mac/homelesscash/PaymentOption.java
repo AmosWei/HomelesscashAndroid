@@ -9,24 +9,49 @@ import android.widget.Button;
 import android.widget.RadioButton;
 
 public class PaymentOption extends AppCompatActivity {
-    Button cnButton;
-    RadioButton visaRadio, paypalRadio, wwRadio;
+    Button btnVisa, btnPaypal,btnWW;
+    String Money, Name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_option);
-        visaRadio = (RadioButton)findViewById(R.id.visaCheckBox);
-        paypalRadio = (RadioButton)findViewById(R.id.paypalCheckBox);
-        wwRadio = (RadioButton)findViewById(R.id.wwCheckBox);
-        cnButton = (Button)findViewById(R.id.cnButton);
-        cnButton.setOnClickListener(new View.OnClickListener() {
+        btnVisa = (Button)findViewById(R.id.visaCheckBox);
+        btnPaypal = (Button)findViewById(R.id.paypalCheckBox);
+        btnWW = (Button)findViewById(R.id.wwCheckBox);
+
+        Intent intent = getIntent();
+        Money = intent.getStringExtra("data");
+        Name = intent.getStringExtra("Name");
+
+        btnVisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PaymentOption.this,TY.class);
-                startActivity(intent);
+                Intent intent1 = new Intent(PaymentOption.this,TY.class);
+                intent1.putExtra("data",Money);
+                intent1.putExtra("Name",Name);
+                startActivity(intent1);
 
             }
         });
+        btnPaypal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent(PaymentOption.this,TY.class);
+                intent2.putExtra("data",Money);
+                intent2.putExtra("Name",Name);
+                startActivity(intent2);
+            }
+        });
+        btnWW.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent3 = new Intent(PaymentOption.this,TY.class);
+                intent3.putExtra("data",Money);
+                intent3.putExtra("Name",Name);
+                startActivity(intent3);
+            }
+        });
+
     }
 }

@@ -8,26 +8,28 @@
 
 
 
-    <RadioButton
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="20dp"
-        android:outlineSpotShadowColor="@color/color_text_black"
+        android:text="Select"
         android:id="@+id/visaCheckBox"/>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/visaCheckBox"
         android:id="@+id/visaImage"
+        android:layout_marginTop="20dp"
         app:srcCompat="@drawable/payment_visa"/>
 
-    <RadioButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/visaCheckBox"
         android:id="@+id/paypalCheckBox"
+        android:text="select"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"
         />
@@ -40,11 +42,12 @@
         android:layout_below="@id/visaImage"
         app:srcCompat="@drawable/paypal"/>
 
-    <RadioButton
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/paypalCheckBox"
         android:id="@+id/wwCheckBox"
+        android:text="select"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="40dp"/>
 
@@ -53,17 +56,12 @@
         android:layout_height="90dp"
         android:id="@+id/wwImage"
         android:layout_toRightOf="@+id/wwCheckBox"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/paypalImage"
         app:srcCompat = "@drawable/woolworth"/>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Continue"
-        android:layout_below="@+id/wwImage"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/cnButton"/>
+
 
 
 </RelativeLayout>
