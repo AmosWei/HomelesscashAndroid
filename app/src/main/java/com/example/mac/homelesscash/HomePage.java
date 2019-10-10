@@ -44,25 +44,7 @@ public class HomePage extends AppCompatActivity implements BootstrapNotifier {
 
         ContextCompat.startForegroundService(this, intent);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //End Service initializer code//
 
 
         super.onCreate(savedInstanceState);

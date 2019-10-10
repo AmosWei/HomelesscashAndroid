@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.TaskStackBuilder;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,15 +41,12 @@ import java.util.Random;
 public class backgroundScanner extends Service implements BeaconConsumer {
 
     private static final String TAG = "BEACON_PROJECT";
-
-    private RegionBootstrap regionBootstrap;
+    public int serviceNotificationID = 9999;
     private BeaconManager beaconManager;
+    //private Service service;
 
-    private ArrayList<String> beaconList;
-    private ListView beaconListView;
-    private ArrayAdapter<String> adapter;
-    private Random rand;
-
+    /* Called once when intent links to backgroundScanner, initialises notification and beaconManager
+    to start searching for iBeacon's with below beaconLayout */
     @Override
     public void onCreate() {
         super.onCreate();
@@ -59,7 +57,7 @@ public class backgroundScanner extends Service implements BeaconConsumer {
         this.beaconManager.bind(this);
 
         Notification.Builder newBuilder = new Notification.Builder(this);
-        newBuilder.setSmallIcon(R.drawable.black_scanner1);
+        newBuilder.setSmallIcon(R.drawable.black_scanner2);
         newBuilder.setContentTitle("Scanning for Beacons");
         newBuilder.setContentText("Homeless cash project is on the lookout");
         Intent always_on_intent = new Intent(this, HomePage.class);
@@ -73,13 +71,24 @@ public class backgroundScanner extends Service implements BeaconConsumer {
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(channel);
             newBuilder.setChannelId(channel.getId());
+            newBuilder.setAutoCancel(true);
             //notificationManager.notify(456, newBuilder.build());
         }
 
 
-        startForeground(1, newBuilder.build());
+        /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            service.startForegroundService(intent);
+        } else {
+            service.startService(intent);
+        } */
 
+        startForeground(serviceNotificationID, newBuilder.build());
 
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return START_STICKY;
     }
 
     @Nullable
@@ -96,7 +105,7 @@ public class backgroundScanner extends Service implements BeaconConsumer {
                 if (beacons.size() > 0) {
                     Log.d("Beacon_Range", "didRangeBeaconsInRegion called with beacon count:  " + beacons.size());
                     Beacon beacon = beacons.iterator().next();
-                    notifyUser(beacons.toString());
+                    notifyUser(beacon.getId1().toString());
                 }
             }
         };
@@ -104,8 +113,8 @@ public class backgroundScanner extends Service implements BeaconConsumer {
         try {
             beaconManager.startRangingBeaconsInRegion(new Region("MyRangeID", null, null, null));
             beaconManager.addRangeNotifier(rangeNotifier);
-            beaconManager.startRangingBeaconsInRegion(new Region("MyRangeID", null, null, null));
-            beaconManager.addRangeNotifier(rangeNotifier);
+//            beaconManager.startRangingBeaconsInRegion(new Region("MyRangeID", null, null, null));
+//            beaconManager.addRangeNotifier(rangeNotifier);
 
 
         } catch (RemoteException e) {
@@ -115,22 +124,28 @@ public class backgroundScanner extends Service implements BeaconConsumer {
 
     }
 
+
+
+
     private void notifyUser(String s) {
+
         int exists = 0;
         int notificationID = 1000;
-
+        String homelesscashUUID = "e2c56db5";
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= 23) {
-            try {
-                StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
-                for (StatusBarNotification notification : notifications) {
-                    if (notification.getId() == notificationID) {
-                        exists = 1;
+        Log.d("ID", s);
+        if (s.substring(0,8).equals(homelesscashUUID)) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                try {
+                    StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
+                    for (StatusBarNotification notification : notifications) {
+                        if (notification.getId() == notificationID) {
+                            exists = 1;
+                        }
                     }
-                }
-                    if (exists == 0){
-                        Log.d("ENTERED", "no current notification");
+                    if (exists == 0) {
+                        //Log.d("ENTERED", "no current notification");
 
                         Notification.Builder newBuilder = new Notification.Builder(this);
                         newBuilder.setSmallIcon(R.drawable.black_scanner2);
@@ -141,7 +156,7 @@ public class backgroundScanner extends Service implements BeaconConsumer {
 
                         newBuilder.setContentIntent(pendingIntent);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            Log.d("notification_channel", "was created");
+                            //Log.d("notification_channel", "was created");
                             NotificationChannel channel = new NotificationChannel("BackgroundScannerNotify", "notifyUser", NotificationManager.IMPORTANCE_DEFAULT);
                             channel.setDescription("Posted when beacon detected");
                             notificationManager.createNotificationChannel(channel);
@@ -151,39 +166,34 @@ public class backgroundScanner extends Service implements BeaconConsumer {
                         }
 
 
+                    }
+
+                } catch (Throwable e) {
+                    Log.w(TAG, e);
                 }
 
-            } catch (Throwable e) {
-                Log.w(TAG, e);
             }
-
         }
 
     }
-//        Notification.Builder newBuilder = new Notification.Builder(this);
-//        newBuilder.setSmallIcon(R.drawable.black_scanner1);
-//        newBuilder.setContentTitle("Scanning for Beacons");
-//        newBuilder.setContentText("Homeless cash project is on the lookout");
-//        Intent always_on_intent = new Intent(this, HomePage.class);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, always_on_intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//
-//        newBuilder.setContentIntent(pendingIntent);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-//            Log.d("notification_channel","was created");
-//            NotificationChannel channel = new NotificationChannel("BackgroundScanner", "Setup for foreground service", NotificationManager.IMPORTANCE_DEFAULT);
-//            channel.setDescription("Foreground service launched when accessing login class");
-//            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//            notificationManager.createNotificationChannel(channel);
-//            newBuilder.setChannelId(channel.getId());
-//           // notificationManager.notify(456, newBuilder.build());
-//        }
-//        startForeground(1, newBuilder.build());
-//        //beaconManager.setEnableScheduledScanJobs(false);
-//        //beaconManager.setBackgroundBetweenScanPeriod(0);
-//        //beaconManager.setBackgroundScanPeriod(1100);
-//       // beaconManager.enableForegroundServiceScanning(newBuilder.build(), 456);
-//
-//
-//        Log.d(TAG, "backgroundtask is running");
-//        //beaconManager.bind(this);
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= 23) {
+            try {
+                StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
+                for (StatusBarNotification notification : notifications) {
+                    if (notification.getId() == serviceNotificationID) {
+                        stopForeground(true);
+                    } else {
+                        //do nothing since no foreground service exists... (technically redundant)
+                    }
+                }
+            } catch (Throwable e) {
+                Log.d("ERROR:", "Unable to determine notification existence in OnDestroy() for backGroundScanner");
+            }
+        }
+    }
 }
