@@ -135,7 +135,7 @@ public class backgroundScanner extends Service implements BeaconConsumer {
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         Log.d("ID", s);
-        if (s.substring(0,8).equals(homelesscashUUID)) {
+        //if (s.substring(0,8).equals(homelesscashUUID)) {
             if (Build.VERSION.SDK_INT >= 23) {
                 try {
                     StatusBarNotification[] notifications = notificationManager.getActiveNotifications();
@@ -175,7 +175,7 @@ public class backgroundScanner extends Service implements BeaconConsumer {
             }
         }
 
-    }
+    //}
 
     @Override
     public void onDestroy() {
