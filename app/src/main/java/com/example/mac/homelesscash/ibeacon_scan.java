@@ -110,9 +110,9 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
 
     // this is only temporate for demo
     private ArrayList<String> homelessNames = new ArrayList<>(Arrays.asList("Jack London",
-            "Harry Potter", "Jon Snow", "Will Sim", "David Bakeham", "Jay Chou",
-            "Rainee Young", "Edd Stark", "Angela Chang", "November Rain", "Ron Wesley",
-            "Alan Walker", "Lily Potter"));
+            "Harry ", "Jon ", "Will ", "David ", "Jay ",
+            "Rainee ", "Edd ", "Angela ", "Ron ",
+            "Alan ", "Lily"));
     private Random rand = new Random();
 
     @Override
@@ -134,7 +134,7 @@ public class ibeacon_scan extends AppCompatActivity implements BeaconConsumer {
                             String uuid = beacon.getId1().toString();
 //                            String major = beacon.getId2().toString();
 //                            String minor = beacon.getId3().toString();
-                            String toDisplay = name + "  ---- Distance: " + distance + "m  "; // FIXME: distance not very accurate
+                            String toDisplay = name ;
                             beaconList.add(toDisplay);
                         }
                     }

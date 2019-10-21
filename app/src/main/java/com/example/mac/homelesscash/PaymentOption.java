@@ -27,7 +27,7 @@ public class PaymentOption extends AppCompatActivity {
         btnVisa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(PaymentOption.this,TY.class);
+                Intent intent1 = new Intent(PaymentOption.this,HomePage.class);
                 intent1.putExtra("data",Money);
                 intent1.putExtra("Name",Name);
                 startActivity(intent1);
@@ -37,7 +37,7 @@ public class PaymentOption extends AppCompatActivity {
         btnPaypal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent2 = new Intent(PaymentOption.this,TY.class);
+                Intent intent2 = new Intent(PaymentOption.this,HomePage.class);
                 intent2.putExtra("data",Money);
                 intent2.putExtra("Name",Name);
                 startActivity(intent2);
@@ -46,7 +46,7 @@ public class PaymentOption extends AppCompatActivity {
         btnWW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent3 = new Intent(PaymentOption.this,TY.class);
+                Intent intent3 = new Intent(PaymentOption.this,HomePage.class);
                 intent3.putExtra("data",Money);
                 intent3.putExtra("Name",Name);
                 startActivity(intent3);

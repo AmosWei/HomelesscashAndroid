@@ -63,7 +63,7 @@ public class DonateNow extends AppCompatActivity {
         btnDR2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DonateNow.this,PaymentOption.class);
+                Intent intent = new Intent(DonateNow.this,TY.class); // redirect to ThankYou page
                 intent.putExtra("data",Money);
                 startActivity(intent);
             }

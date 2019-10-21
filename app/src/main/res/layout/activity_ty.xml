@@ -10,32 +10,31 @@
         android:id="@+id/TY"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="THANK YOU"
-        android:textSize="30sp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="78dp"
+        android:text="THANK YOU"
         android:textColor="#000000"
-        />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/YD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="YOU DONATED"
         android:layout_below="@+id/TY"
-        android:layout_marginTop="60dp"
-        android:textSize="20dp"
-        android:textColor="#000000"
         android:layout_centerHorizontal="true"
-        />
+        android:layout_marginTop="78dp"
+        android:text="YOU DONATED"
+        android:textColor="#000000"
+        android:textSize="20dp" />
 
     <top.androidman.SuperButton
         android:id="@+id/donated_money"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_below="@+id/YD"
-        android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
         app:color_normal="#afdcd8"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -47,40 +46,43 @@
         android:id="@+id/donated_show"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Apple Pay ****4565"
         android:layout_below="@id/donated_money"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textSize="15dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="59dp"
+        android:text=""
         android:textColor="#000000"
-        />
+        android:textSize="15dp" />
 
     <top.androidman.SuperButton
         android:id="@+id/share"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/donated_show"
         android:layout_width="60dp"
         android:layout_height="40dp"
-        android:layout_margin="20dp"
+        android:layout_below="@id/donated_show"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-35dp"
+        android:layout_marginBottom="20dp"
         app:border_color="#c6c4f6"
         app:border_width="2dp"
         app:color_normal="#ffffff"
         app:corner="10dp"
         app:text="share"
         app:textColor="#615dec"
-        app:textSize="15sp"/>
+        app:textSize="15sp" />
 
     <TextView
         android:id="@+id/DR_TEXT"
-        android:textStyle="bold"
-        android:textColor="#51ab9f"
-        android:layout_marginTop="30sp"
-        android:layout_width="wrap_content"
+        android:layout_width="277dp"
         android:layout_height="wrap_content"
-        android:text="DONATE REGULARLY TO "
         android:layout_below="@id/share"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="57dp"
+        android:text="DONATE REGULARLY TO "
+        android:textColor="#51ab9f"
         android:textSize="20dp"
-        />
+        android:textStyle="bold" />
 
 </RelativeLayout>

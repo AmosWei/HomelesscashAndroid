@@ -7,15 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".DR">
 
+
     <ImageView
         android:id="@+id/icon"
         android:layout_width="112dp"
         android:layout_height="103dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="65dp"
         android:src="@drawable/icon2" />
-
 
     <TextView
         android:id="@+id/flag"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="165dp"
+        android:layout_marginTop="177dp"
         android:text="Want to set up regular donations?"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -34,9 +34,9 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@+id/flag"
+        android:layout_marginTop="41dp"
+        android:layout_marginRight="61dp"
         android:layout_toLeftOf="@id/money5"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="15dp"
         app:color_normal="#dbdbdb"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -52,7 +52,7 @@
         android:layout_below="@+id/flag"
         android:layout_centerHorizontal="true"
 
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="41dp"
         app:color_normal="#dbdbdb"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -66,9 +66,9 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_below="@+id/flag"
-        android:layout_toRightOf="@id/money5"
         android:layout_marginLeft="60dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="41dp"
+        android:layout_toRightOf="@id/money5"
         app:color_normal="#dbdbdb"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -83,12 +83,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="309dp"
+        android:layout_marginBottom="276dp"
         android:layout_weight="1"
-        android:textColor="@color/color_text_black"
         android:ems="10"
         android:hint="         custom amount"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textColor="@color/color_text_black" />
 
     <Button
         android:id="@+id/btn_DR2"

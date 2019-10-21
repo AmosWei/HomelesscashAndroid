@@ -81,12 +81,12 @@ public class Donate extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(Money.equals("0")){
-                    Intent intent = new Intent(Donate.this,PaymentOption.class);
+                    Intent intent = new Intent(Donate.this,TY.class);
                     intent.putExtra("data","$"+Input.getText().toString());
                     intent.putExtra("Name",Name);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(Donate.this, PaymentOption.class);
+                    Intent intent = new Intent(Donate.this, TY.class);
                     intent.putExtra("data", Money);
                     intent.putExtra("Name", Name);
                     startActivity(intent);

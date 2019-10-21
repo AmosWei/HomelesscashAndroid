@@ -20,7 +20,7 @@ import static android.app.PendingIntent.getActivity;
 
 public class HomePage extends AppCompatActivity implements BootstrapNotifier {
     TextView donations;
-    TextView donationHistory;
+    TextView OPT;
     TextView donationmap;
     TextView beaconscanner;
     TextView usernameTV;
@@ -57,6 +57,7 @@ public class HomePage extends AppCompatActivity implements BootstrapNotifier {
         beaconscanner = (TextView)findViewById(R.id.mainDonation);
         usernameTV = (TextView)findViewById(R.id.name);
         people = findViewById(R.id.people);
+        OPT = findViewById(R.id.paymentOPT);
 //        donationHistory.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -85,6 +86,14 @@ public class HomePage extends AppCompatActivity implements BootstrapNotifier {
                 startActivity(intent_scanner);
             }
         });
+        OPT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent_scanner = new Intent(HomePage.this,PaymentOption.class); //direct to page to scanner
+                startActivity(intent_scanner);
+            }
+        });
+
 
 //        usernameTV.setText(Login.donor.username);
 //        int numberOfDonation = Login.donor.numberOfDonation;

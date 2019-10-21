@@ -7,15 +7,25 @@
     tools:context=".SetRegular">
 
 
+    <TextView
+        android:id="@+id/name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/icon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="John"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
     <ImageView
         android:id="@+id/icon"
         android:layout_width="112dp"
         android:layout_height="103dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="66dp"
         android:src="@drawable/icon2" />
-
 
     <top.androidman.SuperButton
         android:id="@+id/money5"
@@ -33,48 +43,50 @@
         app:textColor="@color/color_text_black"
         app:textSize="20dp" />
 
-    <TextView
+    <Button
         android:id="@+id/everyday"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Every day"
-        android:textSize="25dp"
         android:layout_below="@+id/money5"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        />
+        android:background="@color/color_white"
+        android:text="  Every day  "
+        android:textSize="25dp" />
 
-    <TextView
+    <Button
         android:id="@+id/everyweek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Every week"
-        android:textSize="25dp"
         android:layout_below="@+id/everyday"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        />
+        android:background="@color/color_white"
+        android:text="  Every week  "
+        android:outlineAmbientShadowColor="@color/color_white"
+        android:textSize="25dp" />
 
-    <TextView
+    <Button
         android:id="@+id/every2weeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Every 2 weeks"
-        android:textSize="25dp"
         android:layout_below="@+id/everyweek"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        />
+        android:text="  Every 2 weeks  "
+        android:background="@color/color_white"
+        android:textSize="25dp" />
 
-    <TextView
+    <Button
         android:id="@+id/everymonth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Every month"
-        android:textSize="25dp"
         android:layout_below="@id/every2weeek"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        />
+        android:text="  Every month  "
+        android:background="@color/color_white"
+        android:textSize="25dp" />
+
 </RelativeLayout>
 
