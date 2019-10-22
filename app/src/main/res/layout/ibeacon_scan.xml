@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:text="Homeless people nearby"
+        android:text="people nearby"
         android:textColor="#000000"
         android:textSize="25dp" />
 
