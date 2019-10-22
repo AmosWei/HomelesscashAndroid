@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="110dp"
         android:text="THANK YOU"
         android:textColor="#000000"
         android:textSize="30sp" />
@@ -23,18 +23,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TY"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="70dp"
         android:text="YOU DONATED"
         android:textColor="#000000"
         android:textSize="20dp" />
 
     <top.androidman.SuperButton
         android:id="@+id/donated_money"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="138dp"
+        android:layout_height="139dp"
         android:layout_below="@+id/YD"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="40dp"
         app:color_normal="#afdcd8"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -55,8 +55,8 @@
 
     <top.androidman.SuperButton
         android:id="@+id/share"
-        android:layout_width="60dp"
-        android:layout_height="40dp"
+        android:layout_width="81dp"
+        android:layout_height="38dp"
         android:layout_below="@id/donated_show"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="-35dp"
@@ -71,14 +71,14 @@
 
     <TextView
         android:id="@+id/DR_TEXT"
-        android:layout_width="277dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/share"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="57dp"
         android:text="DONATE REGULARLY TO "
         android:textColor="#51ab9f"

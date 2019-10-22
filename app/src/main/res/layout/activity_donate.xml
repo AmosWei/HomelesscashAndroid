@@ -51,10 +51,8 @@
         android:id="@+id/money_2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_below="@+id/flag"
         android:layout_marginVertical="200dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="40dp"
         app:color_normal="#dbdbdb"
         app:drawable_middle_height="50dp"
         app:drawable_middle_width="50dp"
@@ -86,17 +84,16 @@
 
     <Button
         android:id="@+id/btnDonate"
-        android:layout_width="200dp"
-        android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
+        android:layout_width="267dp"
+        android:layout_height="71dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="70dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="133dp"
+        android:layout_marginBottom="142dp"
+        android:backgroundTint="#F8DFD7D7"
         android:text="Donate"
         android:textSize="30dp" />
-
 
     <EditText
         android:id="@+id/cus_acc"

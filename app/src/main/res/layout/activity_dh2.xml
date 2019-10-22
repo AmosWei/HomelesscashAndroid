@@ -10,12 +10,13 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="112dp"
-        android:layout_height="103dp"
+        android:layout_width="150dp"
+        android:layout_height="144dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="11dp"
-        android:src="@drawable/icon2" />
+        android:layout_marginTop="80dp"
+        android:src="@drawable/icon2"
+        app:srcCompat="@drawable/iconwhite" />
 
     <TextView
         android:id="@+id/name"
@@ -33,12 +34,11 @@
         android:id="@+id/money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="$9"
-        android:textSize="25dp"
         android:layout_below="@id/name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        />
+        android:text="$9"
+        android:textSize="40sp" />
 
 
     <TextView
@@ -56,23 +56,26 @@
         android:layout_width="273dp"
         android:layout_height="187dp"
         android:layout_below="@+id/date"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="34dp"
+        android:layout_alignBottom="@+id/map"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:layout_marginBottom="0dp"
         android:src="@drawable/map" />
 
     <mehdi.sakout.fancybuttons.FancyButton
         android:id="@+id/btn_DR1"
-        android:layout_width="219dp"
-        android:layout_height="114dp"
+        android:layout_width="203dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/map"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginTop="45dp"
+        android:background="#BBBDC2"
+        android:backgroundTint="#F8DFD7D7"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="20dp"
         android:paddingBottom="10dp"
+        app:fb_defaultColor="#C7BEBE"
         fancy:fb_borderColor="#FFFFFF"
         fancy:fb_borderWidth="1dp"
         fancy:fb_defaultColor="@color/white"
